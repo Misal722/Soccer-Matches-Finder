@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soccer Matches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Select Time Frame for Soccer Matches</h1>
+            <img src="{{ url_for('static', filename='soccer-ball.png') }}" alt="Soccer Ball" class="soccer-ball">
+        </div>
+        <form method="POST">
+            <select name="time_frame" class="dropdown">
+                <option value="12 hours">Next 12 hours</option>
+                <option value="2 days">Next 2 days</option>
+                <option value="5 days">Next 5 days</option>
+                <option value="7 days">Next 7 days</option>
+                <option value="14 days">Next 14 days</option>  <!-- Added for 14 days -->
+            </select>
+            <button type="submit" class="submit-btn">Get Matches</button>
+        </form>
+
+        <h2>Upcoming Matches</h2>
+        <ul class="matches-list">
+            {% if matches|length == 0 %}
+                <li>No matches found for the selected time frame.</li>
+            {% else %}
+                {% for league, league_matches in matches.items() %}
+                    <h3>{{ league }}</h3>
+                    {% if league_matches|length == 0 %}
+                        <li>No matches found for {{ league }}.</li>
+                    {% else %}
+                        {% for match in league_matches %}
+                            <li>{{ match['homeTeam']['name'] }} vs {{ match['awayTeam']['name'] }} - {{ match['utcDate'] }}</li>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>

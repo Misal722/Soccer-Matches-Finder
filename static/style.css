@@ -1,0 +1,68 @@
+body {
+    background-color: #FFCCCC; /* Light red */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    margin: 0; /* Remove default body margin */
+    height: 100vh; /* Make body take the full height of the viewport */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start of the flex container */
+    align-items: center;
+    padding-top: 50px; /* Add padding to create space from the top */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin-right: 20px;
+}
+
+.soccer-ball {
+    width: 50px;
+    height: 50px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.dropdown {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    font-size: 1.1em;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 1.8em;
+}
+
+.matches-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.matches-list li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
